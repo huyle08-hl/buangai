@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine - Huy Yêu Em ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Particle hearts background */
+        .particle {
+            position: absolute;
+            font-size: 20px;
+            animation: float 15s infinite;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            padding: 40px;
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 3D Heart Container */
+        .heart-container {
+            perspective: 1000px;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart-3d {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateHeart 10s infinite linear, beat 1.5s infinite;
+        }
+
+        @keyframes rotateHeart {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(360deg);
+            }
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10% {
+                transform: scale(1.15);
+            }
+            20% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.15);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        .heart {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            transform-style: preserve-3d;
+            box-shadow: 0 0 30px rgba(255, 107, 157, 0.8);
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 160px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            border-radius: 100px 100px 0 0;
+        }
+
+        .heart:before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        /* Create multiple hearts for 3D effect */
+        .heart-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+
+        .heart-face-1 { transform: translateZ(0px); }
+        .heart-face-2 { transform: translateZ(-20px); opacity: 0.9; }
+        .heart-face-3 { transform: translateZ(-40px); opacity: 0.8; }
+        .heart-face-4 { transform: translateZ(-60px); opacity: 0.7; }
+
+        /* Message Section */
+        .message-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .photo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ff6b9d;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        h1 {
+            color: #c06c84;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            text-align: right;
+            color: #ff6b9d;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        /* Editable indicator */
+        [contenteditable="true"] {
+            outline: 2px dashed transparent;
+            padding: 5px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        [contenteditable="true"]:hover {
+            outline-color: #ff6b9d;
+            background: rgba(255, 107, 157, 0.05);
+        }
+
+        [contenteditable="true"]:focus {
+            outline-color: #c06c84;
+            background: rgba(255, 107, 157, 0.1);
+        }
+
+        .edit-note {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .heart-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .heart-3d {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .message-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <script>
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'particle';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 15 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            document.body.appendChild(heart);
+        }
+    </script>
+
+    <div class="container">
+        <!-- 3D Heart -->
+        <div class="heart-container">
+            <div class="heart-3d">
+                <div class="heart-face heart-face-1">
+                    <div class="heart"></div>
+                </div>
+                <div class="heart-face heart-face-2">
+                    <div class="heart"></div>
+                </div>
+                <div class="heart-face heart-face-3">
+                    <div class="heart"></div>
+                </div>
+                <div class="heart-face heart-face-4">
+                    <div class="heart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message Section -->
+        <div class="message-section">
+            <div class="photo-container">
+                <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=400&h=400&fit=crop" 
+                     alt="Valentine Photo" 
+                     class="photo"
+                     id="valentinePhoto">
+            </div>
+
+            <h1 contenteditable="true">Chúc Mừng Valentine! 💕</h1>
+
+            <div class="message" contenteditable="true">
+                Em là ánh sáng trong đời anh,<br>
+                Là niềm vui trong từng khoảnh khắc,<br>
+                Là tình yêu anh muốn giữ mãi,<br>
+                Đến trọn đời, đến mãi mãi...
+            </div>
+
+            <div class="message" contenteditable="true">
+                Trong ngày Valentine này, anh muốn nói với em rằng:<br>
+                Anh yêu em nhiều hơn ngày hôm qua,<br>
+                Nhưng ít hơn ngày mai! ❤️
+            </div>
+
+            <div class="signature" contenteditable="true">
+                - Huy yêu em -
+            </div>
+        </div>
+    </div>
+
+    <div class="edit-note">
+        💡 Click vào các phần chữ để chỉnh sửa nội dung!
+    </div>
+
+    <script>
+        // Change photo functionality
+        const photo = document.getElementById('valentinePhoto');
+        
+        photo.addEventListener('click', function() {
+            const newUrl = prompt('Nhập URL hình ảnh mới (hoặc để trống để giữ nguyên):', this.src);
+            if (newUrl && newUrl.trim() !== '') {
+                this.src = newUrl;
+            }
+        });
+
+        // Add some sparkle effect on hover
+        const messageSection = document.querySelector('.message-section');
+        messageSection.addEventListener('mousemove', function(e) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.style.position = 'absolute';
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.fontSize = '20px';
+            sparkle.style.animation = 'sparkleDisappear 1s forwards';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 1000);
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleDisappear {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-50px) scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
