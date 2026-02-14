@@ -190,7 +190,7 @@
         <!-- Slide 1 -->
         <div class="slide" id="slide1">
             <div class="slide-title">Happy Valentine ❤️</div>
-            <div class="slide-message">Có em thôi là đủ ❤️</div>
+            <div class="slide-message">Em bé An Quỳnh của tôi ❤️</div>
             <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300&h=400&fit=crop" 
                  alt="Photo 1" class="slide-photo">
         </div>
@@ -214,7 +214,7 @@
         <!-- Slide 4 -->
         <div class="slide" id="slide4">
             <div class="slide-title">Em là tất cả 🌟</div>
-            <div class="slide-message">Anh yêu em không chỉ vì con đêm...<br>Mà vì em là ánh sáng trong đời anh</div>
+            <div class="slide-message">Anh yêu em không chỉ vì em xinh<br>Mà vì em là ánh sáng trong đời anh</div>
             <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=300&h=400&fit=crop" 
                  alt="Photo 4" class="slide-photo">
         </div>
