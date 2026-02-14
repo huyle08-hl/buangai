@@ -81,7 +81,7 @@
         }
 
         .slide-photo {
-            width: 240px;
+            width: 280px;
             height: 320px;
             object-fit: cover;
             border-radius: 15px;
