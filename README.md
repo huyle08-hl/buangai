@@ -191,7 +191,7 @@
         <div class="slide" id="slide1">
             <div class="slide-title">Happy Valentine ❤️</div>
             <div class="slide-message">Em bé An Quỳnh của tôi ❤️</div>
-            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=300&h=400&fit=crop" 
+            <img src="vlt1.jpg" 
                  alt="Photo 1" class="slide-photo">
         </div>
 
@@ -199,7 +199,7 @@
         <div class="slide" id="slide2">
             <div class="slide-title">Cảm ơn em ✨</div>
             <div class="slide-message">Vì đã đến bên anh<br>và làm cuộc đời anh trọn vẹn hơn</div>
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=300&h=400&fit=crop" 
+            <img src="vlt2.jpg" 
                  alt="Photo 2" class="slide-photo">
         </div>
 
@@ -207,7 +207,7 @@
         <div class="slide" id="slide3">
             <div class="slide-title">Mỗi ngày bên em 💕</div>
             <div class="slide-message">Là một món quà quý giá<br>mà anh không bao giờ ngừng trân trọng</div>
-            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=300&h=400&fit=crop" 
+            <img src="vlt3.jpg" 
                  alt="Photo 3" class="slide-photo">
         </div>
 
@@ -215,7 +215,7 @@
         <div class="slide" id="slide4">
             <div class="slide-title">Em là tất cả 🌟</div>
             <div class="slide-message">Anh yêu em không chỉ vì em xinh<br>Mà vì em là ánh sáng trong đời anh</div>
-            <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=300&h=400&fit=crop" 
+            <img src="vlt4.jpg" 
                  alt="Photo 4" class="slide-photo">
         </div>
 
@@ -223,7 +223,7 @@
         <div class="slide" id="slide5">
             <div class="slide-title">Mãi mãi yêu em 💖</div>
             <div class="slide-message">Từ hôm nay đến mãi về sau<br>Anh sẽ luôn ở đây, bên em</div>
-            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=300&h=400&fit=crop" 
+            <img src="vlt5.jpg" 
                  alt="Photo 5" class="slide-photo">
         </div>
     </div>
