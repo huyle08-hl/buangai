@@ -223,7 +223,7 @@
         <div class="slide" id="slide5">
             <div class="slide-title">Mãi mãi yêu em 💖</div>
             <div class="slide-message">Từ hôm nay đến mãi về sau<br>Anh sẽ luôn ở đây, bên em</div>
-            <img src="vlt5.jpg" 
+            <img src="vlt6.jpg" 
                  alt="Photo 5" class="slide-photo">
         </div>
     </div>
